@@ -63,6 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'biletebi';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ფიზიკის შემაჯამებელი" href="info.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -169,6 +170,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Praktikis Biletebi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info.html">ფიზიკის შემაჯამებელი</a></li>
 </ul>
 
     </div>
@@ -367,48 +369,54 @@
 <h1>Praktikis Biletebi<a class="headerlink" href="#praktikis-biletebi" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.font_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">fontManager</span><span class="p">,</span> <span class="n">FontProperties</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./results.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.font_manager</span><span class="w"> </span><span class="kn">import</span> <span class="n">fontManager</span><span class="p">,</span> <span class="n">FontProperties</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./results.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;undefined&#39;</span><span class="p">],</span> <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;./arial_geo.ttf&quot;</span>
+<span class="n">fontManager</span><span class="o">.</span><span class="n">addfont</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+<span class="n">palette_color</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;pastel&#39;</span><span class="p">)</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">prop</span><span class="o">.</span><span class="n">get_name</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id    question                                                                                                                                                                               imageURL                                                    answers.0                                                    answers.1                                                                                                                                 answers.2                                                             answers.3                                       correctAnswer                                                                                                                             correctAnswerIndex  explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-1811  რომელი სატრანსპორტო საშუალების მძღოლის მიმართ წარმოექმნება გზის დათმობის ვალდებულება მსუბუქი ავტომიბილის მძღოლს ისრის მიმართულებით მოძრაობის შემთხვევაში?                              https://starti.ge/exam/ticket_media/new/ticketIMG-1811.jpg  მხოლოდ ავტობუსის მძღოლის მიმართ                              მხოლოდ სატვირთო ავტომობილის მძღოლის მიმართ                                                                                                როგორც სატვირთო ავტომობილის,ასევე ავტობუსის მძღოლის მიმართ            არცერთი სატრანსპორტო საშუალების მზღოლის მიმართ  როგორც სატვირთო ავტომობილის,ასევე ავტობუსის მძღოლის მიმართ                                                                                3                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 36-ე მუხლის მე-4 პუნქტის „ა“ და „დ“ ქვეპუნქტების თანახმად, არარეგულირებულ გზაჯვარედინზე: ა) არათანაბარმნიშვნელოვანი გზების გადაკვეთაზე მეორეხარისხოვან გზაზე მოძრავი სატრანსპორტო საშუალების მძღოლი ვალდებულია გზა დაუთმოს მთავარი გზიდან მოახლოებულ სატრანსპორტო საშუალებას, მიუხედავად მისი შემდგომი მოძრაობის მიმართულებისა; დ) მარცხნივ მოხვევისას ან მობრუნებისას ურელსო სატრა¬ნსპორტო საშუალების მძღოლი ვალდებულია გზა დაუთმოს თანაბარ¬მნიშვნელოვან გზაზე საპირისპირო მიმართულებიდან პირდაპირ ან მარჯვნივ მოძრავ სატრანსპორტო საშუალებას. ამავე წესით უნდა იხელმძღვანელონ ურთიერთშორის რელსიანი სატრანსპორტო საშუალებების მძღოლებმაც.                                                                                                                                                                                                                                                                                               9
-954   თუ გასწრებისას აღმოჩნდა დაბრკოლება ან საფრთხე, რომელიც გასწრების დაწყებამდე მძღოლს არ შეეძლო გაეთვალისწინებინა, მძღოლი ვალდებულია:                                                     undefined                                                   გაზარდოს სისწრაფე, რათა დროულად დაასრულოს გასწრების მანევრი  მისცეს ხმოვანი სიგნალი და გააგრძელოს გასწრების მანევრის შესრულება                                                                         შეწყვიტოს გასწრება                                                    undefined                                       შეწყვიტოს გასწრება                                                                                                                        3                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 34-ე მუხლის მე-17 პუნქტის თანახმად, თუ გასწრებისას აღმოჩნდა დაბრკოლება ან საფრთხე, რომლის გათვალისწინება მძღოლს არ შეეძლო გასწრების დაწყებამდე, ან თუ მან ვერ შეძლო სიტუაციის სწორი შეფასება, მძღოლი ვალდებულია შეწყვიტოს გასწრება. თუ მძღოლმა გასწრება შეწყვიტა და ადრე დაკავებულ მოძრაობის ზოლში დაბრუნებას აპირებს, მის უკან მომავალი სატრანსპორტო საშუალებების მძღოლებმა მას უნდა მისცენ ამის შესაძლებლობა.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           1
-956   თუ საგზაო მოძრაობის წესების მოთხოვნათა შესაბამისად მძღოლი ვალდებულია გზა დაუთმოს სხვა საგზაო მოძრაობის მონაწილეებს, მან გზის დათმობის თაობაზე თავისი განზრახვა უნდა გამოხატოს ნათლად:  undefined                                                   სიჩქარის შემცირებით ან გაჩერებით                             ხმოვანი ან მაშუქი სიგნალის მიცემით                                                                                                        ამ ბილეთში ჩამოთვლილი ნებისმიერი მოქმედებით                           undefined                                       სიჩქარის შემცირებით ან გაჩერებით                                                                                                          1                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 36-ე მუხლის მე-9 პუნქტის თანახმად, მძღოლმა, რომელმაც ამ კანონის მოთხოვნათა შესაბამისად გზა უნდა დაუთმოს სხვა საგზაო მოძრაობის მონაწილეებს, ვალდებულია გზის დათმობის თაობაზე თავისი განზრახვა ნათლად გამოხატოს სიჩქარის შემცირებით ან გაჩერებით.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           1
-957   ნებადართულია თუ არა სატრანსპორტო საშუალების დგომა სავალი ნაწილის მარცხენა მხარეს?                                                                                                      undefined                                                   ნებადართულია მხოლოდ დაუსახლებელ პუნქტებში                    ნებადართულია მხოლოდ დასახლებულ პუნქტში იმ გზაზე, სადაც თითოეული მიმართულებისათვის ერთი სამოძრაო ზოლია, შუაში ტრამვაის ლიანდაგების გარეშე  ნებადართულია ნებისმიერ გზაზე, რომლის შუაში არ არის ტრამვაის ლიანდაგი  არ არის ნებადართული                             ნებადართულია მხოლოდ დასახლებულ პუნქტში იმ გზაზე, სადაც თითოეული მიმართულებისათვის ერთი სამოძრაო ზოლია, შუაში ტრამვაის ლიანდაგების გარეშე  2                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 37-ე მუხლის მე-2 პუნქტის „ბ“ ქვეპუნქტის თანახმად, სატრანსპორტო საშუალება, რომელიც ჩერდება ან დგას სავალ ნაწილზე, უნდა იმყოფებოდეს სავალი ნაწილის კიდესთან რაც შეიძლება ახლოს. მძღოლს შეუძლია გაჩერდეს ან დააყენოს სატრანსპორტო საშუალება სავალ ნაწილზე, მარჯვენა მხარეს. სატრანსპორტო საშუალების გაჩერება და დგომა სავალი ნაწილის მარცხენა მხარეს ნებადართულია დასახლებულ პუნქტში იმ გზაზე, სადაც თითოეული მიმართულებისათვის ერთი სამოძრაო ზოლია შუაში ტრამვაის ლიანდაგების გარეშე.                                                                                                                                                                                                                                                                                                                                                                                                                                                       1
-959   სატრანსპორტო საშუალების დგომა არ არის აკრძალული:                                                                                                                                       undefined                                                   გაჩერების ამკრძალავი საგზაო ნიშნის მოქმედების ზონაში         გზის სავალ ნაწილზე რკინიგზის გადასასვლელთან 50 მეტრზე ახლოს                                                                               ეზოდან ავტომობილის გამოსასვლელთან                                     ამ ბილეთში ჩამოთვლილ ყველა ადგილას აკრძალულია   ამ ბილეთში ჩამოთვლილ ყველა ადგილას აკრძალულია                                                                                             4                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 36-ე მუხლის მე-7 პუნქტის „ა“, „ბ“, და „დ“ ქვეპუნქტების თანახმად, აკრძალულია სატრანსპორტო საშუალებების დგომა: ა) იმ ადგილას, სადაც გაჩერება აკრძალულია; ბ) გზის სავალ ნაწილზე რკინიგზის გადასასვლელთან 50 მეტრზე ახლოს; დ) ეზოდან ავტომობილის გამოსასვლელთან.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              1
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ..
-472   მოცემულ სიტუაციაში არღვევს თუ არა მძღოლი იძულებით გაჩერებისათვის დადგენილ მოთხოვნებს, თუ გაუმართავი ავტომობილის დაუყოვნებლივ გაყვანა გზიდან შეუძლებელია?                               https://starti.ge/exam/ticket_media/new/ticketIMG-472.jpg   არ არღვევს                                                   არღვევს                                                                                                                                   undefined                                                             undefined                                       არღვევს                                                                                                                                   2                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 42-ე მუხლის „ე“ პუნქტის თანახმად, საგზაო ნიშნით აღნიშნულ გვირაბებში მოქმედებს შემდეგი წესი იძულებითი გაჩერებისას მძღოლმა უნდა უზრუნველყოს ამ კანონით დადგენილი, აკრძალულ ადგილებში იძულებით გაჩერებასთან დაკავშირებული მოთხოვნების შესრულება. ამავე კანონის 52-ე მუხლის პირველი პუნქტის „ბ“ ქვეპუნქტის თანახმად საავარიო შუქური სიგნალიზაცია უნდა ჩაირთოს იმ ადგილას იძულებითი გაჩერების დროს, სადაც გაჩერება აკრძალულია. ამავე მუხლის მე-2 პუნქტის „ბ“ ქვეპუნქტის თანახმად, საავარიო შუქსიგნალიზაციის ჩართვის შემდეგ, აგრეთვე თუ ასეთი სიგნალიზაცია არ არსებობს ან მწყობრიდანაა გამოსული, მძღოლმა დაუყოვნებლივ უნდა დადგას „საავარიო გაჩერების ნიშანი“, ხოლო არასაკმარისი ხილვადობის პირობებში − მოციმციმე წითელი ფარანი იმ ადგილას იძულებით გაჩერების დროს, სადაც გაჩერება აკრძალულია.                                                                                                                                                  1
-477   რომელი ტრამვაის მძღოლის მიმართ წარმოექმნება გზის დათმობის ვალდებულება მსუბუქი ავტომობილის მძღოლს ისრის მიმართულებით მოძრაობის შემთხვევაში?                                             https://starti.ge/exam/ticket_media/new/ticketIMG-477.jpg   მხოლოდ პირველი ტრამვაის მძღოლის მიმართ                       მხოლოდ მეორე ტრამვაის მძღოლის მიმართ                                                                                                      ორივე ტრამვაის მძღოლის მიმართ                                         არცერთი ტრამვაის მძღოლის მიმართ                 ორივე ტრამვაის მძღოლის მიმართ                                                                                                             3                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 36-ე მუხლის მე-3 პუნქტის „ე“ ქვეპუნქტის თანახმად, რეგულირებულ გზაჯვარედინზე, შუქნიშნის ნებადამრთველ სიგნალზე გზაჯვარედინზე შესულ მძღოლს შეუძლია იმოძრაოს დასახული მიმართულებით, გზაჯვარე¬დინიდან გასასვლელზე არსებული შუქნიშნის ამკრძალავი სიგნალების მიუხედავად, მაგრამ იმ პირობით, რომ ეს არ დააბრკოლებს სხვა საგზაო მოძრაობის მონაწილეთა იმ მიმართულებით მოძრაობას, რომელზედაც მოძრაობა გახსნილია. თუ გზაჯვარედინზე მისი მოძრაობისას გზაზე არსებული შუქნიშნების წინ „სდექ“ ხაზებია (ან/და 7.16 საგზაო ნიშნებია), მძღოლმა უნდა იხელმძღვა¬ნელოს თითოეული შუქნიშნის სიგნალით.                                                                                                                                                                                                                                                                                                                                                             1
-478   რომელი სატრანსპორტო საშუალებაა დაყენებული დგომის წესების დარღვევით?                                                                                                                    https://starti.ge/exam/ticket_media/new/ticketIMG-478.jpg   მხოლოდ სატვირთო ავტომობილი                                   მხოლოდ მსუბუქი ავტომობილი                                                                                                                 ორივე ავტომობილი                                                      არცერთი ავტომობილი                              ორივე ავტომობილი                                                                                                                          3                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 37-ე მუხლის მე-7 პუნქტის „ზ“ ქვეპუნქტის თანახმად, აკრძალულია სატრანსპორტო საშუალებების დგომა, დგომის ამკრძალავი საგზაო ნიშნის ან/და საგზაო მონიშვნის მოქმედების ზონაში. ამავე კანონის პირველი დანართის მე-3 თავის (ამკრძალავი ნიშანები) 3.28 პუნქტის თანახმად საგზაო ნიშანი 3.28 „დგომა აკრძალულია” - კრძალავს სატრანსპორტო საშუალების დგომას. ამავე თავის შენიშვნის „ე“ და „ი“ ქვეპუნქტების თანახმად: ე) 3.16, 3.20, 3.22, 3.24, 3.26–3.30 ნიშნების მოქმედება ვრცელდება სათანადო ნიშნის შემდეგ, ნიშნის დადგმის ადგილიდან უახლოეს გზაჯვარედინამდე, ხოლო დასახლებულ პუნქტში გზაჯვარედინის არარსებობისას – დასახლებული პუნქტის ბოლომდე. ნიშნების მოქმედება ვრცელდება აგრეთვე მიმდებარე ტერიტორიის გამოსას¬ვლე¬ლთან, საველე, სატყეო და სხვა მეორეხარისხოვანი გზების გადაკვეთასთან (შეერთებასთან), რომელთა წინ არ დგას სათანადო ნიშანი; ი) 3.10, 3.27–3.30 ნიშნების მოქმედება ვრცელდება მხოლოდ გზის იმ მხარეს, რომელზედაც ისინია დადგმული.    1
-479   აქვს თუ არა უფლება მსუბუქი ავტომობილის მძღოლს, გაჩერდეს დასახლებული პუნქტის ორმხრივმოძრაობიან გზაზე, სურათზე მითითებულ ადგილას მგზავრთა ჩასხდომის მიზნით?                              https://starti.ge/exam/ticket_media/new/ticketIMG-479.jpg   არ აქვს უფლება                                               აქვს უფლება                                                                                                                               undefined                                                             undefined                                       არ აქვს უფლება                                                                                                                            1                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის 37-ე მუხლის მე-2 პუნქტის თანახმად, სატრანსპორტო საშუალება, რომელიც ჩერდება ან დგას სავალ ნაწილზე, უნდა იმყოფებოდეს სავალი ნაწილის კიდესთან რაც შეიძლება ახლოს. მძღოლს შეუძლია გაჩერდეს ან დააყენოს სატრანსპორტო საშუალება სავალ ნაწილზე, მარჯვენა მხარეს. სატრანსპორტო საშუალების გაჩერება და დგომა სავალი ნაწილის მარცხენა მხარეს ნებადართულია: ა) თუ სალიანდაგო გზების არსებობის გამო მარჯვენა მხარეს გაჩერება შეუძლებელია; ბ) დასახლებულ პუნქტში იმ გზაზე, სადაც თითოეული მიმართულებისათვის ერთი სამოძრაო ზოლია შუაში ტრამვაის ლიანდაგების გარეშე; გ) ცალმხრივმოძრაობიანი გზის სავალ ნაწილზე (სატვირთო ავტომობილის ცალმხრივი მოძრაობის გზის მარცხენა მხარეს გაჩერება ნებადართულია მხოლოდ მისი დატვირთვის ან გადმოტვირთვის დროს).                                                                                                                                                                                                       1
-716   მოცემული საგზაო ნიშნებიდან რომელი კრძალავს სავალი ნაწილების უახლოეს გადაკვეთაზე მობრუნებას?                                                                                            https://starti.ge/exam/ticket_media/new/ticketIMG-716.jpg   III                                                          IV                                                                                                                                        I                                                                     II                                              II                                                                                                                                        4                   „საგზაო მოძრაობის შესახებ“ საქართველოს კანონის პირველი დანართის მე-3 თავის (ამკრძალავი ნიშნები) 3.19 პუნქტის თანახმად საგზაო ნიშანი 3.19 „მობრუნება აკრძალულია” - კრძალავს სავალი ნაწილების უახლოეს გადაკვეთაზე მობრუნებას.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              1
-Name: count, Length: 921, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palette_color</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;pastel&#39;</span><span class="p">)</span> 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id
+False    921
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -423,7 +431,34 @@ Name: count, Length: 921, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Correct Answer Statistics&#39;}, ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/f9c2f699578fe55033fc7c286bc0dfe4293b1329bf22f87c3eeec9bc14f08bd7.png" src="_images/f9c2f699578fe55033fc7c286bc0dfe4293b1329bf22f87c3eeec9bc14f08bd7.png" />
+<img alt="_images/34832de081ef004cd6519da22cf2cf46509a0f5b76f1c1463b40f51961695e96.png" src="_images/34832de081ef004cd6519da22cf2cf46509a0f5b76f1c1463b40f51961695e96.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix, ax = plt.subplots()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;imageURL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="c1"># print(imageOrNa)</span>
+<span class="c1"># ax.pie(imageOrNa, labels=[&quot;With Image&quot;, &quot;Without Image&quot;], autopct=&quot;%1.1f%%&quot;, colors=palette_color)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>imageURL
+https://starti.ge/exam/ticket_media/new/ticketIMG-1.jpg       1
+https://starti.ge/exam/ticket_media/new/ticketIMG-712.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-708.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-706.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-698.jpg     1
+                                                             ..
+https://starti.ge/exam/ticket_media/new/ticketIMG-317.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-314.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-313.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-312.jpg     1
+https://starti.ge/exam/ticket_media/new/ticketIMG-1811.jpg    1
+Name: count, Length: 524, dtype: int64
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -435,7 +470,7 @@ Name: count, Length: 921, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/54a116155a2e10a3014ab2ff09c759204253656577c8a90b13a728f5b62d116d.png" src="_images/54a116155a2e10a3014ab2ff09c759204253656577c8a90b13a728f5b62d116d.png" />
+<img alt="_images/67b546f7a56775f67c277032bb7d9c645cdf9b1b138f94c415391dd55666b4aa.png" src="_images/67b546f7a56775f67c277032bb7d9c645cdf9b1b138f94c415391dd55666b4aa.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -443,6 +478,9 @@ Name: count, Length: 921, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_correct_answer_unique_starting_letter</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
     <span class="c1"># Extract all non-None answers</span>
     <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;answers.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;answers.</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">answers</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
     
     <span class="c1"># Get the starting letters of all answers</span>
     <span class="n">starting_letters</span> <span class="o">=</span> <span class="p">[</span><span class="n">answer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">answer</span> <span class="ow">in</span> <span class="n">answers</span><span class="p">]</span>
@@ -470,34 +508,23 @@ Name: count, Length: 921, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the function to each row</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_unique_starting_letter_correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">is_correct_answer_unique_starting_letter</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">is_correct_answer_unique_starting_letter</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">cond</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_unique_starting_letter_correct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cond</span>
 
 <span class="c1"># Calculate the total number of rows where the condition is met</span>
-<span class="n">total_condition_met</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_unique_starting_letter_correct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">falsy</span><span class="p">,</span> <span class="n">truthy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_unique_starting_letter_correct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 <span class="c1"># Calculate the percentage of rows where the condition is met</span>
-<span class="n">percentage_condition_met</span> <span class="o">=</span> <span class="p">(</span><span class="n">total_condition_met</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_unique_starting_letter_correct&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">percentage_condition_met</span> <span class="o">=</span> <span class="p">(</span><span class="n">truthy</span> <span class="o">/</span> <span class="p">(</span><span class="n">truthy</span> <span class="o">+</span> <span class="n">falsy</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total rows where the condition is met: </span><span class="si">{</span><span class="n">total_condition_met</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total rows where the condition is met: </span><span class="si">{</span><span class="n">truthy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Percentage of rows where the condition is met: </span><span class="si">{</span><span class="n">percentage_condition_met</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total rows where the condition is met: 48
-Percentage of rows where the condition is met: 28.57%
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary_data</span> <span class="o">=</span> <span class="p">{</span>
+
+<span class="n">summary_data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Condition&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Condition Met&#39;</span><span class="p">,</span> <span class="s1">&#39;Condition Not Met&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Count&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">total_condition_met</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;is_unique_starting_letter_correct&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">total_condition_met</span><span class="p">]</span>
+    <span class="s1">&#39;Count&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">truthy</span><span class="p">,</span> <span class="n">falsy</span><span class="p">]</span>
 <span class="p">}</span>
 <span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary_data</span><span class="p">)</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 
 <span class="c1"># Create the bar plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -514,7 +541,40 @@ Percentage of rows where the condition is met: 28.57%
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4fddbe9808246bbbe4c934bd197b9a59d27b4226de354329e80f3403bf92d3f4.png" src="_images/4fddbe9808246bbbe4c934bd197b9a59d27b4226de354329e80f3403bf92d3f4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total rows where the condition is met: 59
+Percentage of rows where the condition is met: 24.08%
+</pre></div>
+</div>
+<img alt="_images/3c246ce67ffc3956ef12105c66ff9109da90c8224b0574dc7c47d4b73cdfd8a4.png" src="_images/3c246ce67ffc3956ef12105c66ff9109da90c8224b0574dc7c47d4b73cdfd8a4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract laws from explanations (e.g., &quot;კანონის 25-ე მუხლის&quot;)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;law_citation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;explanation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(კანონის \d+-ე მუხლის)&#39;</span><span class="p">)</span>
+<span class="n">law_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;law_citation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">law_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">law_counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Most Cited Laws in Explanations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/66c1353a4b8924caa6b616fea24cfc93ea3d129c7c29c15f5369b099af331f50.png" src="_images/66c1353a4b8924caa6b616fea24cfc93ea3d129c7c29c15f5369b099af331f50.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;question_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;question&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;correctAnswerIndex&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;question_length&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Question Length vs. Correct Answer Position&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9a9cc467e728f278b90336026e255f21b2bd0a67b47fe67f909fc5bd63e81afb.png" src="_images/9a9cc467e728f278b90336026e255f21b2bd0a67b47fe67f909fc5bd63e81afb.png" />
 </div>
 </div>
 </section>
@@ -557,6 +617,15 @@ Percentage of rows where the condition is met: 28.57%
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Welcome to your Jupyter Book</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="info.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ფიზიკის შემაჯამებელი</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
